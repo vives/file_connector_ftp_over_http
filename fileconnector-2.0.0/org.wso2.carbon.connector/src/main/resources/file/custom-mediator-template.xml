@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+
+<template xmlns="http://ws.apache.org/ns/synapse" name="customMediator">
+    <parameter name="proxyHost"/>
+    <parameter name="proxyPort"/>
+    <parameter name="proxyUser"/>
+    <parameter name="proxyPassword"/>
+    <parameter name="ftpServer"/>
+    <parameter name="ftpUsername"/>
+    <parameter name="ftpPassword"/>
+    <parameter name="ftpPort"/>
+    <parameter name="targetPath"/>
+    <sequence>
+        <log level="full">
+            <property name="proxyHost" expression="$func:proxyHost"/>
+            <property name="proxyPort" expression="$func:proxyPort"/>
+            <property name="proxyUser" expression="$func:proxyUser"/>
+            <property name="proxyPassword" expression="$func:proxyPassword"/>
+            <property name="ftpServer" expression="$func:ftpServer"/>
+            <property name="ftpUsername" expression="$func:ftpUsername"/>
+            <property name="ftpPassword" expression="$func:ftpPassword"/>
+            <property name="ftpPort" expression="$func:ftpPort"/>
+            <property name="targetPath" expression="$func:targetPath"/>
+        </log>
+        <class name="org.wso2.carbon.connector.CustomVFSMediator"/>
+    </sequence>
+</template>
